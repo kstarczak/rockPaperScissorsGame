@@ -5,28 +5,38 @@ function computerPlay() {
     let computerIndexSelection = Math.floor(plays.length * Math.random());
     let computerPlaySelection = plays[computerIndexSelection];
 }
-computerPlay();
 
-// figure out scope to output the computerplayselection
-//https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Functions
-//https://www.w3schools.com/js/js_if_else.asp
+function playRound(playerSelection,computerPlaySlection) {
+    computerPlay();
+ //prompt for player slection (WORKS!), make case insensitive
+ let computerWins = 0;
+ let playerWins = 0;
+ let playerSelection = prompt("Choose rock, paper, or scissors!");
+ playerSelection = playerSelection.toLowerCase()
+ /* Look up if then syntax!
+ https://www.w3schools.com/js/js_if_else.asp
+ if ((playerSelection === "spock" && (computerPlaySelection === "scissors" || "rock"))
+ || (playerSelection === "scissors" && (computerPlaySelection === "paper" || "lizard"))
+ || (playerSelection === "paper" && (computerPlaySelection === "rock" || "spock"))
+ || (PlayerSelection === "rock" && (computerPlaySelection === "scissor" || "lizard"))
+ || (PlayerSelection === "lizard" && (computerPlaySelection === "paper" || "spock"))) */
 
-//game function play contnues for 5 rounds and keeps score and returns winner//
-//function game(){
+}
+
+function game() {
+    //for....
+    //play contnues for 5 rounds and keeps score and returns winner//
+    // invoke play round function to continue for until 3 wins?
+    // let playerWins;
+    // let computerWins;
+    // Return you won or you lost... try again
+    playRound;
+}
+
     
     //create playRound function//
     /*function playRound(playerSelection,computerPlaySelection){
-        //prompt for player slection (WORKS!), make case insensitive
-        let playerSelection = prompt("Choose rock, paper, or scissors!");
-        playerSelection = playerSelection.toLowerCase()*/
-
-        /* Look up if then syntax!
-        if ((playerSelection === "spock" && (computerPlaySelection === "scissors" || "rock"))
-        || (playerSelection === "scissors" && (computerPlaySelection === "paper" || "lizard"))
-        || (playerSelection === "paper" && (computerPlaySelection === "rock" || "spock"))
-        || (PlayerSelection === "rock" && (computerPlaySelection === "scissor" || "lizard"))
-        || (PlayerSelection === "lizard" && (computerPlaySelection === "paper" || "spock"))) */
-
+       
         //test code below
         //let playerSelection = 'Marmot';
         //alert(`${playerSelection} beats ${computerPlaySelection!} You Won!`);
