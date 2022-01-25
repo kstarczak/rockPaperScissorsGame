@@ -1,48 +1,48 @@
-
-const plays = ["rock", "paper", "scissors", "lizard", "spock"];
+const plays = ["rock", "paper", "scissors", "lizard", "spock"];;
+let playerWins = 0;
+let computerWins = 0;
 
 function computerPlay() {
-    let computerIndexSelection = Math.floor(plays.length * Math.random());
-    let computerPlaySelection = plays[computerIndexSelection];
+    return plays[Math.floor(plays.length * Math.random())];
+    }
+
+function playerPlay() {
+    return prompt("Choose rock, paper, scissors, lizard, or Spock").toLowerCase();
 }
 
-function playRound(playerSelection,computerPlaySlection) {
-    computerPlay();
- //prompt for player slection (WORKS!), make case insensitive
- let computerWins = 0;
- let playerWins = 0;
- let playerSelection = prompt("Choose rock, paper, or scissors!");
- playerSelection = playerSelection.toLowerCase()
- /* Look up if then syntax!
- https://www.w3schools.com/js/js_if_else.asp
- if ((playerSelection === "spock" && (computerPlaySelection === "scissors" || "rock"))
- || (playerSelection === "scissors" && (computerPlaySelection === "paper" || "lizard"))
- || (playerSelection === "paper" && (computerPlaySelection === "rock" || "spock"))
- || (PlayerSelection === "rock" && (computerPlaySelection === "scissor" || "lizard"))
- || (PlayerSelection === "lizard" && (computerPlaySelection === "paper" || "spock"))) */
 
+function playRound(playerSelection,computerSelection) {
+    if (playerSelection === 'marmot') {
+        alert("The Marmot wins the fox's heart!");
+    } else if (playerSelection === computerSelection) {
+        alert('You tied! Try again!');
+    } else if ((playerSelection === 'spock' && (computerSelection === 'scissors' ||computerSelection === 'rock')
+    || (playerSelection === 'scissors' && (computerSelection === 'paper' || computerSelection === 'lizard'))
+    || (playerSelection === 'paper' && (computerSelection === 'rock' || computerSelection === 'spock'))
+    || (playerSelection === 'rock' && (computerSelection === 'scissors' || computerSelection === 'lizard'))
+    || (playerSelection === 'lizard' && (computerSelection === 'paper' || computerSelection ===  'spock')))) {
+        alert(`${playerSelection} beats ${computerSelection}. You won!`); 
+        playerWins += 1;
+    } else {
+        alert(`${playerSelection} loses to ${computerSelection}. You lost!`);
+        computerWins += 1;
+    }
 }
+
 
 function game() {
-    //for....
-    //play contnues for 5 rounds and keeps score and returns winner//
-    // invoke play round function to continue for until 3 wins?
-    // let playerWins;
-    // let computerWins;
-    // Return you won or you lost... try again
-    playRound;
-}
+    playRound (playerPlay(),computerPlay());
+    playRound (playerPlay(),computerPlay());
+    playRound (playerPlay(),computerPlay());
+    playRound (playerPlay(),computerPlay());
+    playRound (playerPlay(),computerPlay());
+    if (playerWins === computerWins) {
+        alert('You tied 5 times! What are the chances!?');
+    } else if (playerWins > computerWins) {
+        alert ('You beat the computer!');
+    } else {
+        alert ('You lost to the computer.')
+    }
+};
 
-    
-    //create playRound function//
-    /*function playRound(playerSelection,computerPlaySelection){
-       
-        //test code below
-        //let playerSelection = 'Marmot';
-        //alert(`${playerSelection} beats ${computerPlaySelection!} You Won!`);
-        // } Else
-        // alert(`${computerPlaySelection} beats ${player selection}... You lost.`)
-
-        //function code end//
-    //}
-//}
+game();
