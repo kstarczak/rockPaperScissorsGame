@@ -8,6 +8,7 @@ function computerPlay() {
 
 function playerPlay() {
     return prompt("Choose rock, paper, scissors, lizard, or Spock").toLowerCase();
+    // delete code above and let playerPlay equal be reassigned to button with event listener and start game
 }
 
 
