@@ -1,3 +1,5 @@
 .playButton {
     background: blue;
+    width:100px;
+    height: auto;
 }
