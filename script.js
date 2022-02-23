@@ -1,59 +1,72 @@
-const plays = ["rock", "paper", "scissors", "lizard", "spock"];;
-const winnerDeclaration = document.querySelector('.winnerDeclaration');
-const score = document.querySelector('.score');
-const playButtons = document.querySelectorAll('.playButton');
+const moveArray = ["rock", "paper", "scissors", "lizard", "spock"];
+const playerScore = document.querySelector('.playerScore');
+const compScore = document.querySelector('.compScore');
+const roundResult = document.querySelector('.roundResult');
 
+const moves = document.querySelectorAll('.move');
+const gameStats = document.querySelector(".gamestats");
 
+let playAgainButton = document.createElement('button');
+playAgainButton.className ='playAgainButton';
+playAgainButton.textContent = "Play Again?";
 
-const testButton = document.querySelector('.testButton');
+let playerWins = 0;
+let compWins = 0;
 
-function computerPlay() {
-    return plays[Math.floor(plays.length * Math.random())];
-    }
 
 //revise function below to return the winner
 function playRound(e) {
-    const computerSelection = computerPlay();
-    const playerSelection = this.id;
-    console.log('the computer picked: ' + computerSelection);
-    console.log('you picked: ' + playerSelection);
-    if (playerSelection === 'marmot') {
-        winnerDeclaration.textContent ='The Marmot wins the fox\'s heart!';
-    } else if (playerSelection === computerSelection) {
-        winnerDeclaration.textContent = 'You tied! Try again!';
-    } else if ((playerSelection === 'spock' && (computerSelection === 'scissors' ||computerSelection === 'rock')
-    || (playerSelection === 'scissors' && (computerSelection === 'paper' || computerSelection === 'lizard'))
-    || (playerSelection === 'paper' && (computerSelection === 'rock' || computerSelection === 'spock'))
-    || (playerSelection === 'rock' && (computerSelection === 'scissors' || computerSelection === 'lizard'))
-    || (playerSelection === 'lizard' && (computerSelection === 'paper' || computerSelection ===  'spock')))) {
-        winnerDeclaration.textContent = `${playerSelection} beats ${computerSelection}. You won!`; 
-        //playerWins += 1;
-        //score.textContent = `Youre score: ${playerWins}        Computer score: ${computerWins}`;
+    const compMove = compPlay();
+    const playerMove = e.target.id;
+    playerScore.textContent = 'Your score: 0';
+    compScore.textContent = 'Computer score: 0'
+    //if (playerMove  === 'marmot') {
+        //roundResult.textContent ='The Marmot wins the fox\'s heart!';
+        // gameEnd();
+    if (playerMove === compMove) {
+        return; 
+    } else if (playerMove === 'spock' && (compMove === 'scissors'||compMove === 'rock')
+            || playerMove  === 'scissors' && (compMove === 'paper' || compMove === 'lizard')
+            || playerMove  === 'paper' && (compMove === 'rock' || compMove === 'spock')
+            || playerMove  === 'rock' && (compMove === 'scissors' || compMove === 'lizard')
+            || playerMove  === 'lizard' && (compMove === 'paper' || compMove ===  'spock')) {
+        playerWins += 1;
+        playerScore.textContent = `Your score: ${playerWins}`;
+        roundResult.textContent = `${playerMove } beats ${compMove}. You won!`; 
+        if (playerWins > 4) {
+            roundResult.textContent = "You beat the computer. Congratulations on winning a game the requires absolutely no skill. You must be so proud of yourself"; 
+            //gameEnd();
+            }
     } else {
-        winnerDeclaration.textContent = `${playerSelection} loses to ${computerSelection}. You lost!`;
-        //computerWins += 1;
-        //score.textContent = `Youre score: ${playerWins}        Computer score: ${computerWins}`;
+        compWins += 1;
+        compScore.textContent = `Computer score: ${compWins}`;
+        roundResult.textContent = `${playerMove } loses to ${compMove}. You lost!`;
+        if (compWins > 4) {
+            roundResult.textContent = 'Surprise, suprise.. the computer beat your ass. You\'re a loser and your parents don\'t even love you.';
+            // gameEnd();
+        }
     }
-}
 
-// execute playGame when page when clicks play game and play again
-function playGame(e) {
-    let playerWins = 0;
-    let computerWins = 0; 
-    playRound('rock');
-    // some counter function
-    playRound('scissors');
-    // some counter function
-    if (playerWins > computerWins) {
-        winnerDeclaration.textContent="You won. Congratulations on winning a game the requires absolutely no critical thinking skills. You must be so proud of yourself"; 
-    } else {
-        winnerDeclaration.textContent="You're a loser and your parents don't even love you.";
+}
+function compPlay() {
+    return moveArray[Math.floor(moveArray.length * Math.random())];
     }
+
+
+function gameEnd() { 
+    // lock the buttons an make them translucent or black;
+    playRound(compWins, playerWins, e);
+    container.appendChild(playAgainButton);
 };
 
+function restGame (){
+    let playerWins = 0;
+    let compWins = 0
+    //unlock bbuttns and clear paras
+};
 
-playButtons.forEach(button => button.addEventListener('click' , playRound));
+moves.forEach((move) => {move.addEventListener('click', playRound);});
 
 
-//addEventListener('click', playRound(button identifier))
 
+/*playButtons.forEach(button => { button.addEventListener('click', playRound)}; */

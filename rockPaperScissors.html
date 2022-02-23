@@ -7,15 +7,38 @@
     <script src="script.js" defer></script>
     </head>
     <body>
-        <h1>Welcome my rock, paper, scissors, lizard, spock game</h1>
-        <div>Rock, paper, scissors, lizard, spock is a variation on the classic game of rock, paper, scissors. If you've never played before <a href="game-rules.html">click here</a> for the rules.</div>
-        <button class="testButton playButton" id="rock">Rock</button>
-        <button class="playButton" id="paper">Paper</button>
-        <button class="playButton" id="scissors">Scissors</button>
-        <button class="playButton" id="lizard">Lizard</button>
-        <button class="playButton" id="spock">Spock</button>
-        <!--create event listener in js to prompt slection for marmot-->
-        <div class ="score"></div>
-        <div class ="winnerDeclaration"></div>
+        <div class="container">
+            <div class="heading">Welcome my rock, paper, scissors, lizard, spock game</div>
+            <div class="description">Rock, paper, scissors, lizard, spock is a variation on the classic game of rock, paper, scissors. If you've never played before click the link at the bottom of the page for the rules.</p>
+            <div class="moves">
+                <div class="move">
+                    <img src="images/rock.jpg" alt="rock" id="rock">
+                </div>
+                <div class="move">
+                    <img src="images/paper.jpg" alt="paper" id="paper">
+                </div>
+                <div class="move">
+                    <img src="images/scissors.jpg" alt="scissors" id="scissors">
+                </div>
+                <div class="move">
+                    <img src="images/lizard.jpg" alt="lizard" id="lizard">
+                </div>
+                <div class="move">
+                    <img src="images/spock.jpg" alt="spock" id="spock">
+                </div>
+            </div>
+           
+            <!--create event listener in js to prompt slection for marmot-->
+            <div class= "gameStats">
+                <div class="scoreCount">
+                    <div class="score playerScore"></div>
+                    <div class="score compScore"></div>
+                </div>
+                <div class="roundResult"></div>
+            </div>
+        </div>
+        <div class="rules"><a href="game-rules.html">click here for the rules</a></div>
+    </div>
+
     </body>
 </html>
