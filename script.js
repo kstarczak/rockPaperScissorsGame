@@ -6,6 +6,7 @@ const roundResult = document.querySelector('.roundResult');
 const moves = document.querySelectorAll('.move');
 const gameStats = document.querySelector('.gameStats');
 const gameEndDiv = document.querySelector('.gameEndDiv');
+const rules = document.querySelector('.rules');
 
 let playAgainButton;
 let quitButton;
@@ -14,18 +15,14 @@ let playerWins = 0;
 let compWins = 0;
 
 
-//revise function below to return the winner
 function playRound(e) {
 if (!this.classList.contains('disabled')) {
     const compMove = compPlay();
     const playerMove = e.target.id;
     playerScore.textContent = 'Your score: 0';
     compScore.textContent = 'Computer score: 0'
-    //if (playerMove  === 'marmot') {
-        //roundResult.textContent ='The Marmot wins the fox\'s heart!';
-        // gameEnd();
     if (playerMove === compMove) {
-        roundResult.textContent =`It's a tie! you both chose ${playerMove}`;
+        roundResult.textContent =`It's a tie! you both chose ${playerMove}.`;
         playerScore.textContent = `Your score: ${playerWins}`;
         compScore.textContent = `Computer score: ${compWins}`;
     } else if (playerMove === 'spock' && (compMove === 'scissors'||compMove === 'rock')
@@ -49,7 +46,7 @@ if (!this.classList.contains('disabled')) {
         roundResult.textContent = `${playerMove } loses to ${compMove}. You lost!`;
         if (compWins > 4) {
             roundResult.classList.add('gameOver');
-            roundResult.textContent = 'Surprise, suprise.. you couldn\'t beat and inanimate object. You\'re a loser and your parents don\'t even love you.';
+            roundResult.textContent = 'Surprise, suprise.. you couldn\'t beat an inanimate object. You\'re a loser and your parents don\'t even love you.';
             gameEnd();
         }
     }
@@ -62,19 +59,16 @@ function compPlay() {
 
 function gameEnd() { 
     moves.forEach((move) => {move.classList.add('disabled');});
-    // add classlists for all to apply grey font and dim effect;
     playAgainButton = document.createElement('button');
     playAgainButton.classList.add('gameEndButton');
     playAgainButton.textContent = "Play Again?"
     quitButton = document.createElement('button');
     quitButton.classList.add('gameEndButton')
     quitButton.innerHTML = '<a href="https://medium.com/@justin_plambert/how-to-quit-being-a-quitter-and-do-something-with-your-life-d8ecfe11be05">Quit</a>'
- 
+    rules.style.marginTop = '80px';
     gameEndDiv.appendChild(playAgainButton);
     gameEndDiv.appendChild(quitButton);
     playAgainButton.addEventListener('click',resetGame);
-
-    
 }
 
 function resetGame() {
@@ -86,7 +80,7 @@ function resetGame() {
     playerScore.textContent = '';
     compScore.textContent = '';
     roundResult.textContent = '';
-    //unlock bbuttns and clear paras
+    rules.style.marginTop = '-40px';
 }
 
 moves.forEach((move) => {move.addEventListener('click', playRound);});

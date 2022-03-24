@@ -1,9 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+}
 body {
     background: white;
     color: black;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0; padding: 0;
 }
 .main {
     display: flex;
@@ -22,13 +25,14 @@ body {
 .description {
     padding: 30px;
     background: rgb(51, 51, 51);
-}
-.descriptionText {
-    width: 800px;
     color: white;
     text-align: center;
     margin: 0px auto;
     font-size: 28px;
+}
+.description a{
+    text-decoration: none;
+    color: yellow;
 }
 .moves {
     margin-top: 30px;
@@ -36,7 +40,7 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-.move {
+img {
     width:150px;
     height: 150px;
     margin: 0px 6px;
@@ -47,6 +51,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition-duration: 0.5s;
+}
+img:hover {
+    transform: scale(1.1);
+
 }
 .moveDesDiv {
     display: flex;
@@ -64,14 +73,10 @@ body {
     background: #f9f9f9;
 }
 
-img {
-    
-    height:120px;
-    width: 120px;
-}
-
 .gameStats {
     height: 200px;
+    margin-top: 30px;
+    font-size: 22px;
 }
 
 .scoreCount {
@@ -88,14 +93,15 @@ img {
     width: 600px;
     line-height: 28px;
     text-align: center;
-    margin: 30px auto;
+    margin: auto;
+    font-weight: 700;
 }
 .gameOver {
     font-weight: bold;
 }
 .stat {
     height: 30px;
-    margin: 30px;
+    margin: 30px auto;
 }
 
 .disabled * {
@@ -145,4 +151,18 @@ img {
     text-decoration: none;
     color: rgb(68, 2, 2);
     font-weight: bold;
+}
+
+.video {
+    width: 672px;
+    margin: 40px auto;
+}
+.return {
+    font-size: 28px;
+    text-align: center;
+    margin: auto;
+}
+.return a {
+    text-decoration: none;
+    color: rgb(170, 170, 137);
 }
